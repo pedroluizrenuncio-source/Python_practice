@@ -161,16 +161,16 @@ import math
 # We will consider a, e, i, o, u as vowels for this Kata (but not y).
 
 # The input string will only consist of lower case letters and/or spaces.
-vogals = ['a', 'e', 'i', 'o', 'u']
-def get_count(sentence):
-    vogals_count = 0
+# vogals = ['a', 'e', 'i', 'o', 'u']
+# def get_count(sentence):
+#     vogals_count = 0
 
-    for i in sentence:
-        if i in vogals:
-            vogals_count += 1
-    return vogals_count
+#     for i in sentence:
+#         if i in vogals:
+#             vogals_count += 1
+#     return vogals_count
 
-print(get_count('hello mr johnathan wheatley how are you doing on this fine day?'))
+# print(get_count('hello mr johnathan wheatley how are you doing on this fine day?'))
 # endregion
 #region Exercise 9 03.06.2026
 # Create a function called one that accepts two params:
@@ -183,25 +183,25 @@ print(get_count('hello mr johnathan wheatley how are you doing on this fine day?
 # one([1, 3, 5, 6, 99, 1, 3], bigger_than_ten) -> true
 # one([1, 3, 5, 6, 99, 88, 3], bigger_than_ten) -> false
 # one([1, 3, 5, 6, 5, 1, 3], bigger_than_ten) -> false
-def one(xs, f):
-    count = 0 
-    for i in xs:
-        if f(i):
-            count += 1
+# def one(xs, f):
+#     count = 0 
+#     for i in xs:
+#         if f(i):
+#             count += 1
     
-    if count == 1:
-        return True
-    else:
-        return False
+#     if count == 1:
+#         return True
+#     else:
+#         return False
         
 
 
-def bigger_than_ten(j):
-    if j > 100:
-        return True
-    else:
-        return False
-print(one([1, 3, 5, 6, 99, 1, 3], bigger_than_ten))
+# def bigger_than_ten(j):
+#     if j > 100:
+#         return True
+#     else:
+#         return False
+# print(one([1, 3, 5, 6, 99, 1, 3], bigger_than_ten))
 #endregion
 #region Exercise 10 03.06.2026
 # In this Kata your task will be to return
@@ -216,12 +216,63 @@ print(one([1, 3, 5, 6, 99, 1, 3], bigger_than_ten))
 # the fourth pair is (7,6), also consecutive. Count = 3.
 # the last element has no pair, so we ignore.
 
-def pairs(arr):
-    count = 0
-    for i in range(0, len(arr) - 1, 2):
-        a, b = arr[i], arr[i + 1]
-        if abs(a - b) == 1:
-            count += 1
-    return count
-print(pairs([(1,2), (5,8), (-4,-3), (7,6), 5]))
+# def pairs(arr):
+#     count = 0
+#     for i in range(0, len(arr) - 1, 2):
+#         a, b = arr[i], arr[i + 1]
+#         if abs(a - b) == 1:
+#             count += 1
+#     return count
+# print(pairs([(1,2), (5,8), (-4,-3), (7,6), 5]))
 #endregion
+#region Exercise 11 04.06.2026
+# Trolls are attacking your comment section!
+# A common way to deal with this situation is to 
+#! remove all of the vowels from the trolls' comments, neutralizing the threat.
+# Your task is to write a function that takes a string
+# !and return a new string with all vowels removed.
+#! For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+# Note: for this kata y isn't considered a vowel.
+def disemvowel(string_):
+    vowels = set('aeiouAEIOU')
+    return ''.join(c for c in string_ if c not in vowels)
+
+print(disemvowel('hello my name is pEdro'))
+#endregion
+#region Exercise 12 04.06.2026
+# !In this little assignment you are given a string
+# ! of space separated numbers, and have to return 
+# !the highest and lowest number.
+# Examples
+# high_and_low("1 2 3 4 5") # return "5 1"
+# high_and_low("1 2 -3 4 5") # return "5 -3"
+# high_and_low("1 9 3 4 -5") # return "9 -5"
+# Notes
+# All numbers are valid Int32, no need to validate them.
+# There will always be at least one number in the input string.
+# Output string must be two numbers separated by a single space, and highest number is first.
+def high_and_low(numbers):
+    nums = [int(n) for n in numbers.split()]
+    return f"{max(nums)} {min(nums)}"
+
+
+print(high_and_low(("1 2 3 4 5")))
+#endregion
+#region Exercise 13 04.06.2026
+# Your task is to make a function that can take any non-
+# negative integer as an argument and return it with its digits
+# in descending order. Essentially, rearrange the digits to
+# create the highest possible number.
+
+# Examples:
+# Input: 42145 Output: 54421
+
+# Input: 145263 Output: 654321
+
+# Input: 123456789 Output: 987654321
+
+def descending_order(num):
+    numbers = [int(n) for n in str(num)]
+    return int(''.join(str(n) for n in sorted(numbers, reverse=True)))
+# 'Exercises 11,12,13 (Disenvowel, highest and lowest,Descending Order)'
+
