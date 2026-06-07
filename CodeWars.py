@@ -10,7 +10,7 @@ import math
 
 # print(square_digits(220384))
 # endregion
-# region Exercise 2 01.06.2026
+#region Exercise 2 01.06.2026
 
 # def circle_area(r):
 #     if r <= 0:
@@ -136,32 +136,46 @@ import math
 #     return int(''.join(str(n) for n in sorted(numbers, reverse=True)))
 # endregion
 #region Exercise 14 05.06.2026
-def filter_list(l):
-    filtered_list = [x for x in l if isinstance(x, int)]
-    return filtered_list
-print(filter_list([1,2,'aasf','1','123',123]))
+# def filter_list(l):
+#     filtered_list = [x for x in l if isinstance(x, int)]
+#     return filtered_list
+# print(filter_list([1,2,'aasf','1','123',123]))
 #endregion
 #region Exercise 15 05.06.2026
-# You are going to be given a non-empty string. Your job is to return the middle character(s) of the string.
 
-# If the string's length is odd, return the middle character.
-# If the string's length is even, return the middle 2 characters.
-# Examples:
-# "test" --> "es"
-# "testing" --> "t"
-# "middle" --> "dd"
-# "A" --> "A"
-def get_middle(s):
-    if len(s) %2 != 0:
-        return s[int((len(s)/ 2))]
-    elif len(s) %2 == 0:
-        return f'{s[int(len(s)/2-1)] + s[int(len(s)/2 )]}'
+# def get_middle(s):
+#     if len(s) %2 != 0:
+#         return s[int((len(s)/ 2))]
+#     elif len(s) %2 == 0:
+#         return f'{s[int(len(s)/2-1)] + s[int(len(s)/2 )]}'
 
-print(get_middle('A'))
+# print(get_middle('A'))
 #endregion
-# region Exercise 16 05.06.2026
+#region Exercise 16 05.06.2026
+# def find_short(s):
+#     return min(len(word) for word in s.split())
 
-def find_short(s):
-    return min(len(word) for word in s.split())
+# print(find_short('hello johnny how are you '))
+# endregion
+#region Exercise 17 06.06.2026
+# def DNA_strand(dna):
+#     complement = ''
+#     for n in dna:
+#         if n == 'A':
+#             complement += 'T'
+#         elif n == 'T':
+#             complement += 'A'
+#         elif n == 'C':
+#             complement += 'G'
+#         elif n == 'G':
+#             complement+= 'C'
+#     return complement
 
-print(find_short('hello johnny how are you '))
+# print(DNA_strand('ATTGC'))
+#endregion
+#region Exercise 18 06.06.2026
+# def maskify(cc):
+#     return '#' * (len(cc) - 4) + cc[-4:]
+
+# print(maskify("4556364607935616"))
+#endregion
