@@ -179,3 +179,71 @@ import math
 
 # print(maskify("4556364607935616"))
 #endregion
+#region Exercise 19 07.06.2026
+# reate a function that returns the sum of the two lowest positive numbers
+#  given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
+
+# For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
+
+# [10, 343445353, 3453445, 3453545353453] should return 3453455
+
+def sum_two_smallest_numbers(numbers):
+    n1, n2 = sorted(numbers)[:2]
+    return n1 + n2
+
+print(sum_two_smallest_numbers([10, 343445353, 3453445, 3453545353453] ))
+#endregion
+
+#region Exercise 20 07.06.2026
+# Make a program that filters a list of strings and returns a list with only your friends name in it.
+
+# If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, you can be sure he's not...
+
+# Input = ["Ryan", "Kieran", "Jason", "Yous"]
+# Output = ["Ryan", "Yous"]
+
+# Input = ["Peter", "Stephen", "Joe"]
+# Output = []
+
+def friend(x):
+    friend = []
+    for i in x:
+        if len(i) == 4:
+            friend.append(i)
+    return friend
+print(friend(["Ryan", "Kieran", "Jason", "Yous"]))
+            
+    #Code
+#endregion 
+#region Exercise 21 07.06.2026
+def odd_or_even(arr):
+    total = 0
+    for i in arr:
+        total += i
+    if total % 2 == 0:
+        return 'even'
+    else:
+        return 'odd'
+
+print(odd_or_even([0, 1, 4]))
+#endregion 
+#region Exercise 22 07.06.2026
+# Given an array of integers, remove the smallest value. 
+# Do not mutate the original array/list. If there are multiple elements with the same value, 
+# remove the one with the lowest index. If you get an empty array/list, return an empty array/list.
+
+# Don't change the order of the elements that are left.
+
+# Examples
+# * Input: [1,2,3,4,5], output = [2,3,4,5]
+# * Input: [5,3,2,1,4], output = [5,3,2,4]
+# * Input: [2,2,1,2,1], output = [2,2,2,1]
+
+def remove_smallest(numbers):
+    if not numbers:
+        return []
+    minnimal = list(numbers)
+    minnimal.remove(min(minnimal))
+    return minnimal
+
+print(remove_smallest([2,2,1,2,1]))
