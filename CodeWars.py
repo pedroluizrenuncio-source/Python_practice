@@ -30,7 +30,7 @@ import math
     
 # print(validate_pin("123456"))
 # endregion
-#region Exercise 4(02/06/2026)
+#region Exercise 4 02.06.2026
 # def is_square(n):    
 #     if n < 0:
 #         return False
@@ -180,70 +180,114 @@ import math
 # print(maskify("4556364607935616"))
 #endregion
 #region Exercise 19 07.06.2026
-# reate a function that returns the sum of the two lowest positive numbers
-#  given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
+# def sum_two_smallest_numbers(numbers):
+#     n1, n2 = sorted(numbers)[:2]
+#     return n1 + n2
 
-# For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
-
-# [10, 343445353, 3453445, 3453545353453] should return 3453455
-
-def sum_two_smallest_numbers(numbers):
-    n1, n2 = sorted(numbers)[:2]
-    return n1 + n2
-
-print(sum_two_smallest_numbers([10, 343445353, 3453445, 3453545353453] ))
+# print(sum_two_smallest_numbers([10, 343445353, 3453445, 3453545353453] ))
 #endregion
-
 #region Exercise 20 07.06.2026
-# Make a program that filters a list of strings and returns a list with only your friends name in it.
-
-# If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, you can be sure he's not...
-
-# Input = ["Ryan", "Kieran", "Jason", "Yous"]
-# Output = ["Ryan", "Yous"]
-
-# Input = ["Peter", "Stephen", "Joe"]
-# Output = []
-
-def friend(x):
-    friend = []
-    for i in x:
-        if len(i) == 4:
-            friend.append(i)
-    return friend
-print(friend(["Ryan", "Kieran", "Jason", "Yous"]))
-            
-    #Code
+# def friend(x):
+#     friend = []
+#     for i in x:
+#         if len(i) == 4:
+#             friend.append(i)
+#     return friend
+# print(friend(["Ryan", "Kieran", "Jason", "Yous"]))
+        
 #endregion 
-#region Exercise 21 07.06.2026
-def odd_or_even(arr):
-    total = 0
-    for i in arr:
-        total += i
-    if total % 2 == 0:
-        return 'even'
-    else:
-        return 'odd'
+#region Exercise 21 07.06.2026 13.06.2026
+# Complete the findNextSquare method that finds the next integral perfect square after the one passed as a parameter. Recall that an integral perfect square is an integer n such that sqrt(n) is also an integer.
 
-print(odd_or_even([0, 1, 4]))
+# If the argument is itself not a perfect square then return either -1 or an empty value like None or null, depending on your language. You may assume the argument is non-negative.
+
+# Examples ( Input --> Output )
+# 121 --> 144
+# 625 --> 676
+# 114 --> -1  #  because 114 is not a perfect square
+
+# def odd_or_even(arr):
+#     total = 0
+#     for i in arr:
+#         total += i
+#     if total % 2 == 0:
+#         return 'even'
+#     else:
+#         return 'odd'
+
+# print(odd_or_even([0, 1, 4]))
 #endregion 
 #region Exercise 22 07.06.2026
-# Given an array of integers, remove the smallest value. 
-# Do not mutate the original array/list. If there are multiple elements with the same value, 
-# remove the one with the lowest index. If you get an empty array/list, return an empty array/list.
+# def remove_smallest(numbers):
+#     if not numbers:
+#         return []
+#     minnimal = list(numbers)
+#     minnimal.remove(min(minnimal))
+#     return minnimal
 
-# Don't change the order of the elements that are left.
+# print(remove_smallest([2,2,1,2,1]))
+#endregion
+#region Exercise 23 13.06.2026
+# def find_next_square(sq):
+#     nextsq = False
+#     print(math.sqrt(sq))    # Return the next square if sq is a square, -1 otherwise
+#     if math.sqrt(sq) % 1 == 0 :
+#         new_numb = sq
+#         while not nextsq:
+#             new_numb += 1
+#             if math.sqrt(new_numb) %1 ==0:
+#                 nextsq = True
+#                 return new_numb
+#             else: continue
+#     else:
+#         return -1
+    
+# print(find_next_square(625))
+#endregion
+#region Exercise 24 13.06.2026
+# def capitals(word):
+#     capitals_list = []
+#     for i, char in enumerate(word):
+#         if char == char.upper():
+#             capitals_list.append(i)
+#     return capitals_list
+# print(capitals("CodEWaRs"))
+#endregion
+#region Exercise 25 13.06.2026
+# def sum_digits(number):
+#     summed = 0
+#     absolute = abs(number)
+#     stringed = str(absolute)
+#     for i in stringed:
+#         summed += int(i)
+#     return summed
+# print(sum_digits(99))
+#endregion
+#region Exercise 26 13.06.2026
+# def accum(st):
+#     accumulated = []
+#     for i, char in enumerate(st):
+#         accumulated.append(char.upper() + (char *(i)).lower())
+#     # return '-'.join[]
+#     return '-'.join(accumulated)
 
-# Examples
-# * Input: [1,2,3,4,5], output = [2,3,4,5]
-# * Input: [5,3,2,1,4], output = [5,3,2,4]
-# * Input: [2,2,1,2,1], output = [2,2,2,1]
+# print(accum("RqaEzty"))
+#endregion
+#region Exercise 27 13.06.2026
+# def to_jaden_case(string):
+#    return ' '.join(i.capitalize() for i in string.split())
+# print(to_jaden_case("How can mirrors be real if our eyes aren't real"))
+#endregion
+#region Exercise 28 13.06.2026
+# def solution(text, ending):
+    
+#     if len(ending)> len(text):
+#         return False
+#     elif text[-(len(ending)):] == ending:
+#         return True
+#     else:
+#         return False 
+# print(solution( "this",    "fails"))
+#endregion
+#
 
-def remove_smallest(numbers):
-    if not numbers:
-        return []
-    minnimal = list(numbers)
-    minnimal.remove(min(minnimal))
-    return minnimal
-
-print(remove_smallest([2,2,1,2,1]))
