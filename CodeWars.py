@@ -196,16 +196,7 @@ import math
 # print(friend(["Ryan", "Kieran", "Jason", "Yous"]))
         
 #endregion 
-#region Exercise 21 07.06.2026 13.06.2026
-# Complete the findNextSquare method that finds the next integral perfect square after the one passed as a parameter. Recall that an integral perfect square is an integer n such that sqrt(n) is also an integer.
-
-# If the argument is itself not a perfect square then return either -1 or an empty value like None or null, depending on your language. You may assume the argument is non-negative.
-
-# Examples ( Input --> Output )
-# 121 --> 144
-# 625 --> 676
-# 114 --> -1  #  because 114 is not a perfect square
-
+#region Exercise 21 07.06.2026
 # def odd_or_even(arr):
 #     total = 0
 #     for i in arr:
@@ -288,6 +279,78 @@ import math
 #     else:
 #         return False 
 # print(solution( "this",    "fails"))
+#endregion
+#region Exercise 29 14.06.2026
+def knight_vs_rook(knight, rook):
+    #position horse and rook 
+    p_horse_row = knight[0] 
+    p_horse_column =(ord(knight[1])-64)
+    p_rook_row = rook[0] 
+    p_rook_column =(ord(rook[1])-64)
+    summed = (abs(p_horse_row - p_rook_row), abs(p_horse_column - p_rook_column))
+    #configuring the rook 
+    if rook[1] == knight[1] or rook[0] == knight[0]:
+        return 'Rook'
+    elif summed == (2,1) or summed == (1,2):
+        return 'Knight'           
+    else:
+        return None
+# print(knight_vs_rook((7, 'B'), (2, 'F')))
+#endregion 
+#region Exercise 30 14.06.2026
+def caffeine_buzz(n):
+    mocha_word = ''
+    if n %3 == 0 and n %4 != 0:
+        mocha_word += 'Java'
+        if n%3 == 0 and n %2 == 0:
+                mocha_word+='Script'
+    
+    elif n %3 == 0 and n %4 == 0:
+        mocha_word += 'Coffee'
+        if n%3 == 0 and n %2 == 0:
+            mocha_word+='Script'
+    else: mocha_word += 'mocha_missing!'
+    return mocha_word
+    
+# print(caffeine_buzz(12))
+
+#region Exercise 31 14.06.2026
+def stalin_sort(arr):
+    if not arr:
+        return []
+    survivors = [arr[0]]
+    for val in arr[1:]:
+        if val >= survivors[-1]:
+            survivors.append(val)
+        else:
+            print("Расстрелять!")
+    return survivors
+
+# print(stalin_sort([3, 1, 4, 1, 5, 9, 2]))     
+# endregion   
+#region Exercise 32 14.06.2026
+def solution(number):
+    if number < 0:
+      return 0
+
+    numbers = []
+    for i in range(0, number):
+      if i %3 == 0 or i %5 ==0:
+         numbers.append(i)
+    
+    return sum(numbers)
+# print(solution(6))
+#endregion
+#region Exercise 33 14.06.2026
+def divisors(integer):
+    result = []
+    for i in range(2, integer):
+        if integer % i == 0:
+            result.append(i)
+    if not result:
+        return f"{integer} is prime"
+    return result
+print(divisors(24))
 #endregion
 #
 
