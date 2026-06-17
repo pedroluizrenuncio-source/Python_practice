@@ -281,76 +281,112 @@ import math
 # print(solution( "this",    "fails"))
 #endregion
 #region Exercise 29 14.06.2026
-def knight_vs_rook(knight, rook):
-    #position horse and rook 
-    p_horse_row = knight[0] 
-    p_horse_column =(ord(knight[1])-64)
-    p_rook_row = rook[0] 
-    p_rook_column =(ord(rook[1])-64)
-    summed = (abs(p_horse_row - p_rook_row), abs(p_horse_column - p_rook_column))
-    #configuring the rook 
-    if rook[1] == knight[1] or rook[0] == knight[0]:
-        return 'Rook'
-    elif summed == (2,1) or summed == (1,2):
-        return 'Knight'           
-    else:
-        return None
+# def knight_vs_rook(knight, rook):
+#     #position horse and rook 
+#     p_horse_row = knight[0] 
+#     p_horse_column =(ord(knight[1])-64)
+#     p_rook_row = rook[0] 
+#     p_rook_column =(ord(rook[1])-64)
+#     summed = (abs(p_horse_row - p_rook_row), abs(p_horse_column - p_rook_column))
+#     #configuring the rook 
+#     if rook[1] == knight[1] or rook[0] == knight[0]:
+#         return 'Rook'
+#     elif summed == (2,1) or summed == (1,2):
+#         return 'Knight'           
+#     else:
+#         return None
 # print(knight_vs_rook((7, 'B'), (2, 'F')))
 #endregion 
 #region Exercise 30 14.06.2026
-def caffeine_buzz(n):
-    mocha_word = ''
-    if n %3 == 0 and n %4 != 0:
-        mocha_word += 'Java'
-        if n%3 == 0 and n %2 == 0:
-                mocha_word+='Script'
+# def caffeine_buzz(n):
+#     mocha_word = ''
+#     if n %3 == 0 and n %4 != 0:
+#         mocha_word += 'Java'
+#         if n%3 == 0 and n %2 == 0:
+#                 mocha_word+='Script'
     
-    elif n %3 == 0 and n %4 == 0:
-        mocha_word += 'Coffee'
-        if n%3 == 0 and n %2 == 0:
-            mocha_word+='Script'
-    else: mocha_word += 'mocha_missing!'
-    return mocha_word
+#     elif n %3 == 0 and n %4 == 0:
+#         mocha_word += 'Coffee'
+#         if n%3 == 0 and n %2 == 0:
+#             mocha_word+='Script'
+#     else: mocha_word += 'mocha_missing!'
+#     return mocha_word
     
 # print(caffeine_buzz(12))
-
+#endregion
 #region Exercise 31 14.06.2026
-def stalin_sort(arr):
-    if not arr:
-        return []
-    survivors = [arr[0]]
-    for val in arr[1:]:
-        if val >= survivors[-1]:
-            survivors.append(val)
-        else:
-            print("Расстрелять!")
-    return survivors
+# def stalin_sort(arr):
+#     if not arr:
+#         return []
+#     survivors = [arr[0]]
+#     for val in arr[1:]:
+#         if val >= survivors[-1]:
+#             survivors.append(val)
+#         else:
+#             print("Расстрелять!")
+#     return survivors
 
 # print(stalin_sort([3, 1, 4, 1, 5, 9, 2]))     
 # endregion   
 #region Exercise 32 14.06.2026
-def solution(number):
-    if number < 0:
-      return 0
+# def solution(number):
+#     if number < 0:
+#       return 0
 
-    numbers = []
-    for i in range(0, number):
-      if i %3 == 0 or i %5 ==0:
-         numbers.append(i)
+#     numbers = []
+#     for i in range(0, number):
+#       if i %3 == 0 or i %5 ==0:
+#          numbers.append(i)
     
-    return sum(numbers)
+#     return sum(numbers)
 # print(solution(6))
 #endregion
 #region Exercise 33 14.06.2026
-def divisors(integer):
-    result = []
-    for i in range(2, integer):
-        if integer % i == 0:
-            result.append(i)
-    if not result:
-        return f"{integer} is prime"
-    return result
-print(divisors(24))
+# def divisors(integer):
+#     result = []
+#     for i in range(2, integer):
+#         if integer % i == 0:
+#             result.append(i)
+#     if not result:
+#         return f"{integer} is prime"
+#     return result
+# print(divisors(24))
 #endregion
-#
+#region Exercise 34 17.06.2026  
+def complete(s):
+    for k in range(1, len(s) + 1):
+        if s[k:] == s[k:][::-1]:
+            return s + s[:k][::-1]
 
+
+# print(complete('aab'))
+#endregion
+#region Exercise 35 17.06.2026 
+
+def split_odd_and_even(n):
+    stringed = str(n)
+    result = []
+    current_group = stringed[0]
+    current_parity = int(stringed[0]) % 2
+
+    for i in stringed[1:]:
+        if int(i) % 2 == current_parity:
+            current_group += i
+        else:
+            result.append(int(current_group))
+            current_group = i
+            current_parity = int(i) % 2
+
+    result.append(int(current_group))
+    return result
+#endregion
+#region Exercise 36 17.06.2026
+def eq_all(iterable):
+    items = list(iterable)
+    if not items:
+        return True
+    for i in range(len(items) - 1):
+        if items[i] != items[i+1]:
+            return False
+    return True
+#endregion
