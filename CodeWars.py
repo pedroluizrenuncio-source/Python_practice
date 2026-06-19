@@ -353,40 +353,66 @@ import math
 # print(divisors(24))
 #endregion
 #region Exercise 34 17.06.2026  
-def complete(s):
-    for k in range(1, len(s) + 1):
-        if s[k:] == s[k:][::-1]:
-            return s + s[:k][::-1]
+# def complete(s):
+#     for k in range(1, len(s) + 1):
+#         if s[k:] == s[k:][::-1]:
+#             return s + s[:k][::-1]
 
 
 # print(complete('aab'))
 #endregion
 #region Exercise 35 17.06.2026 
 
-def split_odd_and_even(n):
-    stringed = str(n)
-    result = []
-    current_group = stringed[0]
-    current_parity = int(stringed[0]) % 2
+# def split_odd_and_even(n):
+#     stringed = str(n)
+#     result = []
+#     current_group = stringed[0]
+#     current_parity = int(stringed[0]) % 2
 
-    for i in stringed[1:]:
-        if int(i) % 2 == current_parity:
-            current_group += i
-        else:
-            result.append(int(current_group))
-            current_group = i
-            current_parity = int(i) % 2
+#     for i in stringed[1:]:
+#         if int(i) % 2 == current_parity:
+#             current_group += i
+#         else:
+#             result.append(int(current_group))
+#             current_group = i
+#             current_parity = int(i) % 2
 
-    result.append(int(current_group))
-    return result
+#     result.append(int(current_group))
+#     return result
 #endregion
 #region Exercise 36 17.06.2026
-def eq_all(iterable):
-    items = list(iterable)
-    if not items:
-        return True
-    for i in range(len(items) - 1):
-        if items[i] != items[i+1]:
-            return False
-    return True
+# def eq_all(iterable):
+#     items = list(iterable)
+#     if not items:
+#         return True
+#     for i in range(len(items) - 1):
+#         if items[i] != items[i+1]:
+#             return False
+#     return True
 #endregion
+#region Exercise 37 18.06.2026
+def mul30(x): return x * 30
+
+# # returns 1800
+
+def chain(init_val, functions):
+    result = init_val
+    for func in functions:
+        result = func(result)
+    return result
+
+# print(chain(50, [mul30, add10]))
+
+#endregion
+#region Exercise 38 19.06.2026
+# def name_value(my_list):
+#     summed_up = []
+#     for elements in my_list:
+#         sums = 0
+#         for i in elements.upper():
+#             if i.isalpha():
+#                 sums += ord(i) - 64
+#         summed_up.append(sums)
+#     return summed_up
+
+# print(name_value(["abc", "abc abc"]))
