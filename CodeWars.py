@@ -416,3 +416,32 @@ def chain(init_val, functions):
 #     return summed_up
 
 # print(name_value(["abc", "abc abc"]))
+#endregion
+#region Exercise 39 23.06.2026
+def monkeys():
+    v=["Five","Four","Three","Two","One"]
+    m="\nMother called the doctor and the doctor said:\n"
+    l=[]
+    for n in v:
+        if n=="One":l.append(f"{n} little monkey jumping on the bed,\nHe fell off and bumped his head.{m}Put those monkeys right to bed!")
+        else:l.append(f"{n} little monkeys jumping on the bed,\nOne fell off and bumped his head.{m}No more monkeys jumping on the bed!")
+    return'\n\n'.join(l)
+# print(monkeys())
+#region Exercise 40 23.06.2026
+# Given a sequence of integers, return the sum of all the integers that have an even index (odd index in COBOL), multiplied by the integer at the last index.
+
+# Indices in sequence start from 0.
+
+# If the sequence is empty, you should return 0.
+def even_last(numbers): 
+    summed = 0
+    if not numbers:
+        return 0
+    for i in range(len(numbers)):
+        if i % 2 == 0:  # even index only
+            summed += numbers[i]
+    return summed * numbers[len(numbers)-1]
+#endregion
+
+
+#
